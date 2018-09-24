@@ -10,8 +10,8 @@ class ProductsController < ApplicationController
       }
     )
     @json_response = Hash.from_xml(@response.data[:body])
-    @lowest_new_price = @json_response['ItemLookupResponse']['Items']["Item"]["OfferSummary"]["LowestNewPrice"]["FormattedPrice"]
-    @lowest_used_price = @json_response['ItemLookupResponse']['Items']["Item"]["OfferSummary"]["LowestUsedPrice"]["FormattedPrice"]
+    @lowest_new_price = @json_response['ItemLookupResponse']['Items']["Item"]["OfferSummary"]["LowestNewPrice"]["FormattedPrice"] rescue ""
+    @lowest_used_price = @json_response['ItemLookupResponse']['Items']["Item"]["OfferSummary"]["LowestUsedPrice"]["FormattedPrice"] rescue ""
     @hash = {asin: asin, used_price: @lowest_used_price, new_price: @lowest_new_price, trade_in_profit: nil}
     render json: @hash
   end
