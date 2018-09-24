@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   end
   def popular
     @product_searches = ProductSearch.order("counter desc").limit(3)
-    render json: @product_searches
+    render json: @product_searches, only: ['asin', 'counter']
   end
   
   private
