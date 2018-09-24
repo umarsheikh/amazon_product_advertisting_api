@@ -1,0 +1,26 @@
+<%= link_to("Invite Friends Over!", new_user_invitation_path)%>
+<br>
+
+<% if @accepted.length > 0 %>
+  <h3>The following users have accepted your invite:</h3>
+  <ul>
+  <% @accepted.each do |user| %>
+    <li><%= user.email %></li>
+  <% end %>
+  </ul>
+<% else %>
+  <% if @unaccepted.length > 0 %>
+    <h3>No Accepted Invitations so far </h3>
+  <% else %>
+    <h3>You havent invited any users yet.</h3>
+  <% end %>
+<% end %>
+
+<% if @unaccepted.length > 0 %>
+  <h3>The following users have not yet accepted your invite:</h3>
+  <ul>
+  <% @unaccepted.each do |user| %>
+    <li><%= user.email %></li>
+  <% end %>
+  </ul>
+<% end %>
