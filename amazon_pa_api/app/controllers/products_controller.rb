@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
   before_action :setup_request
   def prices
-    ProductSearch.find_or_create_by(asin: asin).increment!
     asin = params[:asin]
+    ProductSearch.find_or_create_by(asin: asin).increment!
     @response = @request.item_lookup(
       query: {
         'ItemId' => asin,
