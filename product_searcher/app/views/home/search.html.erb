@@ -1,0 +1,8 @@
+<%= form_tag root_path, method: 'get' do %>
+<%= text_field_tag "asin", params[:asin] %>
+<%= submit_tag "Search", name: "" %>
+<% end %>
+
+<h4>Search Results</h4>
+
+<%= @result %>
