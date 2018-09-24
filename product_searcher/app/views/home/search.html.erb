@@ -1,4 +1,6 @@
+<h4>Asin Search Form</h4>
 <%= form_tag root_path, method: 'get' do %>
+<%= label_tag "asin", "Asin"%>
 <%= text_field_tag "asin", params[:asin] %>
 <%= submit_tag "Search", name: "" %>
 <% end %>
